@@ -3,11 +3,17 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
+import { DimensionsComponent } from './dimensions/dimensions.component';
+import { DimensionsListComponent } from './dimensions/dimensions-list/dimensions-list.component';
+import { DimensionsDetailsComponent } from './dimensions/dimensions-details/dimensions-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    DimensionsComponent,
+    DimensionsListComponent,
+    DimensionsDetailsComponent
   ],
   imports: [
     BrowserModule
