@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { DimensionsComponent } from './dimensions/dimensions.component';
 import { DimensionsListComponent } from './dimensions/dimensions-list/dimensions-list.component';
 import { DimensionsDetailsComponent } from './dimensions/dimensions-details/dimensions-details.component';
+import { DimensionItemComponent } from './dimensions/dimensions-list/dimension-item/dimension-item.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { DimensionsDetailsComponent } from './dimensions/dimensions-details/dime
     HeaderComponent,
     DimensionsComponent,
     DimensionsListComponent,
-    DimensionsDetailsComponent
+    DimensionsDetailsComponent,
+    DimensionItemComponent
   ],
   imports: [
     BrowserModule

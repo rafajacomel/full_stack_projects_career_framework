@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { Dimension } from '../dimension.model';
 
 @Component({
   selector: 'app-dimensions-details',
@@ -6,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dimensions-details.component.css']
 })
 export class DimensionsDetailsComponent implements OnInit {
+  @Input() dimension: Dimension;
 
   constructor() { }
 

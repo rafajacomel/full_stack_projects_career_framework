@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Dimension } from './dimension.model';
 
 @Component({
   selector: 'app-dimensions',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dimensions.component.css']
 })
 export class DimensionsComponent implements OnInit {
+  selectedDimension: Dimension;
 
   constructor() { }
 

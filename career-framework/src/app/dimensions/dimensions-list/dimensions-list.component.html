@@ -1,19 +1,14 @@
-  <div class="row">
-    <div class="col-xs-12">
-      <a
-        href="#"
-        class="list-group-item clearfix"
-        *ngFor="let dimension of dimensions">
-        <div class="pull-left">
-          <h4 class="list-group-item-heading">{{dimension}}</h4>
-        </div>
-        <span class="pull-right">
-          <img
-            class="img-responsive"
-            style="max-height: 50px;">
-        </span>
-      </a>
-    </div>
+<div class="row">
+  <div class="col-xs-12">
+    <app-dimension-item
+      *ngFor="let dimensionEl of dimensions"
+      [dimensions]="dimensionEl"
+      (dimensionSelected)="onDimensionSelected(dimensionEl)"></app-dimension-item>
+      <br>
+      <div class="btn-toolbar">
+        <button type="button" class="btn btn-warning btn-sm">Save</button>
+        <button type="button" class="btn btn-success btn-sm">Submit to manager</button>
+      </div>
   </div>
-  
-  
+</div>
+
