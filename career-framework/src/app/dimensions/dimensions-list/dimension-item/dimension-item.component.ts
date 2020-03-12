@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { Dimension } from '../../dimension.model';
+import { DimensionService } from '../../dimension.service'
 
 @Component({
   selector: 'app-dimension-item',
@@ -8,16 +9,15 @@ import { Dimension } from '../../dimension.model';
   styleUrls: ['./dimension-item.component.css']
 })
 export class DimensionItemComponent implements OnInit {
-  @Input() dimensions: Dimension;
-  @Output() dimensionSelected = new EventEmitter<void>();
+  @Input() dimension: Dimension;
 
-  constructor() { }
+  constructor(private dimensionService: DimensionService) { }
 
   ngOnInit() {
   }
 
   onSelected() {
-    this.dimensionSelected.emit();
+    this.dimensionService.dimensionSelected.emit(this.dimension);
   }
 
 }

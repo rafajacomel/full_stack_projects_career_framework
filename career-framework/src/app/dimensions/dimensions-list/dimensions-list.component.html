@@ -2,8 +2,7 @@
   <div class="col-xs-12">
     <app-dimension-item
       *ngFor="let dimensionEl of dimensions"
-      [dimensions]="dimensionEl"
-      (dimensionSelected)="onDimensionSelected(dimensionEl)"></app-dimension-item>
+      [dimension]="dimensionEl"></app-dimension-item>
       <br>
       <div class="btn-toolbar">
         <button type="button" class="btn btn-warning btn-sm">Save</button>
