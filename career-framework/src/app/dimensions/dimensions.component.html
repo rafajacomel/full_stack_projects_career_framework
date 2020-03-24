@@ -3,11 +3,6 @@
         <app-dimensions-list></app-dimensions-list>
     </div>
     <div class="col-md-7">
-        <app-dimensions-details
-        *ngIf="selectedDimension; else infoText"
-        [dimension]="selectedDimension"></app-dimensions-details>
-        <ng-template #infoText>
-            <p>Please select a Dimension</p>
-          </ng-template>
+        <router-outlet></router-outlet>
     </div>
 </div>

@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Dimension } from '../dimension.model';
 import { DimensionService } from '../dimension.service'
 
@@ -9,11 +9,22 @@ import { DimensionService } from '../dimension.service'
   styleUrls: ['./dimensions-details.component.css']
 })
 export class DimensionsDetailsComponent implements OnInit {
-  @Input() dimension: Dimension;
+  dimension: Dimension;
+  id: number;
 
-  constructor(private dimensionService: DimensionService) { }
+  constructor(private recipeService: DimensionService,
+                private route: ActivatedRoute,
+                private router: Router) {
+    }
 
-  ngOnInit(): void {
-  }
+    ngOnInit() {
+      this.route.params
+            .subscribe(
+              (params: Params) => {
+                this.id = +params['id'];
+                this.dimension = this.recipeService.getDimension(this.id);
+              }
+            );
+         }
 
 }

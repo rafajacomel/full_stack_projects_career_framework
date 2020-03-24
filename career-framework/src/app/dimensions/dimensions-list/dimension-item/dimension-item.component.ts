@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { Dimension } from '../../dimension.model';
-import { DimensionService } from '../../dimension.service'
 
 @Component({
   selector: 'app-dimension-item',
@@ -10,14 +9,8 @@ import { DimensionService } from '../../dimension.service'
 })
 export class DimensionItemComponent implements OnInit {
   @Input() dimension: Dimension;
-
-  constructor(private dimensionService: DimensionService) { }
+  @Input() index: number;
 
   ngOnInit() {
   }
-
-  onSelected() {
-    this.dimensionService.dimensionSelected.emit(this.dimension);
-  }
-
 }

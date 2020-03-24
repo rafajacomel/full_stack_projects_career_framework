@@ -7,6 +7,9 @@ import { DimensionsComponent } from './dimensions/dimensions.component';
 import { DimensionsListComponent } from './dimensions/dimensions-list/dimensions-list.component';
 import { DimensionsDetailsComponent } from './dimensions/dimensions-details/dimensions-details.component';
 import { DimensionItemComponent } from './dimensions/dimensions-list/dimension-item/dimension-item.component';
+import { AppRoutingModule } from './app-routing.module';
+import { DimensionStartComponent } from './dimensions/dimension-start/dimension-start.component';
+
 
 @NgModule({
   declarations: [
@@ -15,10 +18,12 @@ import { DimensionItemComponent } from './dimensions/dimensions-list/dimension-i
     DimensionsComponent,
     DimensionsListComponent,
     DimensionsDetailsComponent,
-    DimensionItemComponent
+    DimensionItemComponent,
+    DimensionStartComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

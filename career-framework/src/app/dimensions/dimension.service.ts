@@ -28,5 +28,9 @@ export class DimensionService {
     return this.dimensions.slice();
   }
 
+  getDimension(index: number) {
+    return this.dimensions[index];
+  }
+
 }
 
