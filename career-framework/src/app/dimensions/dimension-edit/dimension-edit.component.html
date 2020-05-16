@@ -1,0 +1,23 @@
+<div class="row">
+  <h3><i>{{ dimension.name }}</i></h3>
+  <p>
+  <label for="comment">Dimension descripton: {{ dimension.description }}</label>
+  <form [formGroup]="dimensionForm" (ngSubmit)="onSubmit()">
+    <div class="col-xs-12">
+      <div class="form-group">
+        <textarea
+          rows="10"
+          type="text"
+          id="evidences"
+          formControlName="evidences"
+          class="form-control"
+          #evidences></textarea>
+          <br>
+          <button
+          type="submit"
+          class="btn btn-success">Save</button>
+      </div>
+    </div>
+    <br>
+  </form>
+</div>

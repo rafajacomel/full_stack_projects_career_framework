@@ -14,12 +14,13 @@ export class DimensionsComponent implements OnInit {
   constructor(private dimensionService: DimensionService) { }
 
   ngOnInit(): void {
-    this.dimensionService.dimensionSelected
+    /*this.dimensionService.dimensionSelected
     .subscribe(
        (dimension: Dimension) => {
               this.selectedDimension = dimension;
                   }
-      );
+      );}*/
+      
   }
 
 }

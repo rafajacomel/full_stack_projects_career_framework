@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -9,6 +12,8 @@ import { DimensionsDetailsComponent } from './dimensions/dimensions-details/dime
 import { DimensionItemComponent } from './dimensions/dimensions-list/dimension-item/dimension-item.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DimensionStartComponent } from './dimensions/dimension-start/dimension-start.component';
+import { DimensionService } from './dimensions/dimension.service';
+import { DimensionEditComponent } from './dimensions/dimension-edit/dimension-edit.component';
 
 
 @NgModule({
@@ -19,13 +24,16 @@ import { DimensionStartComponent } from './dimensions/dimension-start/dimension-
     DimensionsListComponent,
     DimensionsDetailsComponent,
     DimensionItemComponent,
-    DimensionStartComponent
+    DimensionStartComponent,
+    DimensionEditComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [DimensionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -3,48 +3,10 @@
       <h3><i>{{ dimension.name }}</i></h3>
       <p>
       <label for="comment">Dimension descripton: {{ dimension.description }}</label>
-      <textarea class="form-control" rows="10"></textarea>
+      <textarea readonly class="form-control" rows="10">{{ dimension.evidences }}</textarea>
       <br>
+      <button (click)="onEditRecipe()">Edit</button>
     </div>
+     
     <br>
-    <label>Stefanini values achived on this dimension:</label>
-    <br>
-    <div class="custom-control custom-checkbox">
-      <input type="checkbox" class="custom-control-input" id="defaultUnchecked" unchecked>
-      <label class="custom-control-label" for="defaultUnchecked" style="margin-right: 10px">Believe and respect people</label>
-    </div> 
-
-    <div class="custom-control custom-checkbox">
-      <input type="checkbox" class="custom-control-input" id="defaultChecked2" unchecked>
-      <label class="custom-control-label" for="defaultChecked2" style="margin-right: 10px">Be proud to be Stefanini</label>
-    </div>
-
-    <div class="custom-control custom-checkbox">
-      <input type="checkbox" class="custom-control-input" id="defaultChecked2" unchecked>
-      <label class="custom-control-label" for="defaultChecked2" style="margin-right: 10px">Be ethical and act according to what you say</label>
-    </div>
-
-    <div class="custom-control custom-checkbox">
-      <input type="checkbox" class="custom-control-input" id="defaultChecked2" unchecked>
-      <label class="custom-control-label" for="defaultChecked2" style="margin-right: 10px">Lead by example</label>
-    </div>
-
-    <div class="custom-control custom-checkbox">
-      <input type="checkbox" class="custom-control-input" id="defaultChecked2" unchecked>
-      <label class="custom-control-label" for="defaultChecked2" style="margin-right: 10px">Act as an entrepreneur</label>
-    </div>
-
-    <div class="custom-control custom-checkbox">
-      <input type="checkbox" class="custom-control-input" id="defaultChecked2" unchecked>
-      <label class="custom-control-label" for="defaultChecked2" style="margin-right: 10px">Focus on results</label>
-    </div> 
-    <div class="custom-control custom-checkbox">
-      <input type="checkbox" class="custom-control-input" id="defaultChecked2" unchecked>
-      <label class="custom-control-label" for="defaultChecked2" style="margin-right: 10px">Be better at what we do</label>
-    </div>
-
-    <div class="custom-control custom-checkbox">
-      <input type="checkbox" class="custom-control-input" id="defaultChecked2" unchecked>
-      <label class="custom-control-label" for="defaultChecked2" style="margin-right: 10px">Serve the customer</label>
-    </div>
 </div>
