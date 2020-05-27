@@ -2,32 +2,64 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
 import { Dimension } from './dimension.model';
+import { ManageDimensionsServicesService } from './service/data/manage-dimensions-services.service';
 
 @Injectable()
 export class DimensionService {
   dimensionsChanged = new Subject<Dimension[]>();
+  dimensionDescriptions: String[]; 
 
-  private dimensions: Dimension[] = [
+  private dimensions: Dimension[] =  [
     new Dimension('Business Results', 
     'On this section you will input the achievements of your division in the company' + 
-    ' like financial results, market share, etc.', ''),
+    ' like financial results, market share, etc.',''),
     new Dimension('Individual Achievements', 
     'On this section you will input the individual achievements like code delivered' +
-    ' tests done, projects you participate, etc.',''),
+    ' tests done, projects you participate, etc.', ''),
     new Dimension('Innovation',
     'On this section you will input the innovation you proposed to help in the project' +
-    ' like automation of process, improvements, etc.','' ),
+    ' like automation of process, improvements, etc.', ''),
     new Dimension('Skills', 
-    'On this section you will input what you learn in the period, courses technology etc.', '' ),
+    'On this section you will input what you learn in the period, courses technology etc.', 
+    '' ),
     new Dimension('Responsability with Others', 
-    'On this section you will input how you help others to achive objectves, mentoring, etc.', '')
+    'On this section you will input how you help others to achive objectves, mentoring, etc.',
+    '')
   ];
 
-  constructor() {}
+  constructor(private manageDimensionsServicesService: ManageDimensionsServicesService) {}
 
   getDimensions() {
-    return this.dimensions.slice();
+     this.manageDimensionsServicesService.getDimensionsInfo().subscribe(
+      response => {
+        this.dimensionDescriptions = response;
+        this.setDimensionsValues();
+      }
+    );
+
+    return(this.dimensions.slice());
   }
+
+  setDimensionsValues() {
+    this.dimensions  = [
+      new Dimension('Business Results', 
+      'On this section you will input the achievements of your division in the company' + 
+      ' like financial results, market share, etc.',this.dimensionDescriptions[0].valueOf()),
+      new Dimension('Individual Achievements', 
+      'On this section you will input the individual achievements like code delivered' +
+      ' tests done, projects you participate, etc.', this.dimensionDescriptions[1].valueOf()),
+      new Dimension('Innovation',
+      'On this section you will input the innovation you proposed to help in the project' +
+      ' like automation of process, improvements, etc.', this.dimensionDescriptions[2].valueOf()),
+      new Dimension('Skills', 
+      'On this section you will input what you learn in the period, courses technology etc.', 
+      this.dimensionDescriptions[3].valueOf() ),
+      new Dimension('Responsability with Others', 
+      'On this section you will input how you help others to achive objectves, mentoring, etc.',
+      this.dimensionDescriptions[4].valueOf())
+    ];
+  }
+
 
   getDimension(index: number) {
     return this.dimensions[index];
