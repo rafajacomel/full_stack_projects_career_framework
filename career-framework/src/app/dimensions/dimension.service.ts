@@ -1,5 +1,6 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http'
 
 import { Dimension } from './dimension.model';
 import { ManageDimensionsServicesService } from './service/data/manage-dimensions-services.service';
@@ -27,7 +28,9 @@ export class DimensionService {
     '')
   ];
 
-  constructor(private manageDimensionsServicesService: ManageDimensionsServicesService) {}
+  constructor(private manageDimensionsServicesService: ManageDimensionsServicesService,
+    private http:HttpClient) {
+  }
 
   getDimensions() {
      this.manageDimensionsServicesService.getDimensionsInfo().subscribe(
@@ -60,16 +63,17 @@ export class DimensionService {
     ];
   }
 
-
   getDimension(index: number) {
     return this.dimensions[index];
   }
 
   updateDimension(index: number, evidences: string) {
-
     this.dimensions[index] = new Dimension(this.dimensions[index].name,
       this.dimensions[index].description, evidences ),
     this.dimensionsChanged.next(this.dimensions.slice());
+    this.http.put(`http://localhost:8090/getcareerinfo/${index}/${evidences}`,index).subscribe (
+      data => console.log(data)
+    )
   }
 
 }
